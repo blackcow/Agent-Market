@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Agent 市场与工作流平台</title>
+    <meta
+      name="description"
+      content="面向个人与企业的 AI Agent 市场与工作流平台，支持发现、试跑、购买、工作流编排与合规运营。"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="scripts/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="top-nav">
+        <div class="logo" aria-label="AI Agent 市场">Agent Market</div>
+        <ul class="nav-links">
+          <li><a href="#discover">发现</a></li>
+          <li><a href="#catalog">分类</a></li>
+          <li><a href="#workflows">工作流</a></li>
+          <li><a href="#creator">开发者中心</a></li>
+          <li><a href="#enterprise">企业</a></li>
+          <li><a href="#docs">文档</a></li>
+          <li><a href="#support">支持</a></li>
+        </ul>
+        <button id="themeToggle" class="ghost-button" aria-label="切换浅色/深色模式">
+          🌙
+        </button>
+      </nav>
+      <section class="hero" id="discover">
+        <div class="hero-content">
+          <p class="tagline">愿景：一站式的 AI Agent 市场与工作流平台</p>
+          <h1>发现、试跑、组合并运营可信赖的智能体</h1>
+          <p class="hero-description">
+            立即检索支持工作流编排的 AI Agent，了解定价、评分、权限与最新状态，快速完成试跑与采购闭环。
+          </p>
+          <div class="search-area" role="search">
+            <label for="globalSearch" class="sr-only">搜索 Agent</label>
+            <div class="search-input-group">
+              <span aria-hidden="true">🔍</span>
+              <input
+                id="globalSearch"
+                type="search"
+                placeholder="搜索 Agent，支持自然语言与高级语法：例如 数据处理 price:subscription risk:low"
+                autocomplete="off"
+              />
+              <button id="searchBtn" class="primary-button" type="button">搜索</button>
+            </div>
+            <div class="search-hints">
+              <span>热门搜索：</span>
+              <button type="button" class="hint" data-query="报表 自动化">报表 自动化</button>
+              <button type="button" class="hint" data-query="客服 对话 多语言">客服 对话 多语言</button>
+              <button type="button" class="hint" data-query="合规 审批 企业">合规 审批 企业</button>
+            </div>
+          </div>
+          <dl class="hero-metrics" aria-label="MVP 成功指标">
+            <div>
+              <dt>D7 留存目标</dt>
+              <dd>≥ 20%</dd>
+            </div>
+            <div>
+              <dt>试跑转化</dt>
+              <dd>≥ 30%</dd>
+            </div>
+            <div>
+              <dt>结算转化</dt>
+              <dd>≥ 8%</dd>
+            </div>
+            <div>
+              <dt>退款率</dt>
+              <dd>≤ 5%</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-card">
+            <h3>实时沙箱调用</h3>
+            <p>平均响应 <strong>&lt; 1.2s</strong></p>
+            <ul>
+              <li>上下文长度：128k</li>
+              <li>权限模拟：Slack / Notion / HTTP</li>
+              <li>安全评级：低风险</li>
+            </ul>
+          </div>
+          <div class="visual-card">
+            <h3>工作流版本</h3>
+            <p>事件触发 / 定时 / 手动</p>
+            <ul>
+              <li>回滚支持</li>
+              <li>审计日志 90 天</li>
+              <li>多环境密钥隔离</li>
+            </ul>
+          </div>
+          <div class="visual-card">
+            <h3>企业席位包</h3>
+            <p>集中计费 & 权限边界</p>
+            <ul>
+              <li>RBAC 角色管理</li>
+              <li>审批流 & 合规标签</li>
+              <li>私有化部署选项</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="secondary-nav" aria-label="榜单与分类导航">
+        <div class="chips" role="list">
+          <button class="chip active" data-secondary="new">新品</button>
+          <button class="chip" data-secondary="trending">趋势</button>
+          <button class="chip" data-secondary="top">高评分</button>
+          <button class="chip" data-secondary="enterprise">企业精选</button>
+          <button class="chip" data-secondary="workflow">支持工作流</button>
+        </div>
+        <div class="chips filters">
+          <button class="chip" data-price="free">免费</button>
+          <button class="chip" data-price="one_time">一次性</button>
+          <button class="chip" data-price="subscription">订阅</button>
+        </div>
+      </section>
+
+      <section class="catalog module-block" id="catalog">
+        <div class="section-heading">
+          <div>
+            <h2>智能体分类体系</h2>
+            <p>覆盖 10+ 任务场景、行业维度与能力标签，帮助你精准锁定业务需求。</p>
+          </div>
+          <a class="ghost-button" href="#docs">查看命名规范</a>
+        </div>
+        <div class="category-grid" role="list">
+          <article class="category-card" role="listitem">
+            <h3>内容生成</h3>
+            <p>营销文案、脚本、多语言润色，支持多模态与渠道适配。</p>
+            <span class="badge">热门</span>
+          </article>
+          <article class="category-card" role="listitem">
+            <h3>数据处理</h3>
+            <p>抽取、转换、报表生成，支持 API/数据库/文件多源整合。</p>
+          </article>
+          <article class="category-card" role="listitem">
+            <h3>知识问答</h3>
+            <p>企业知识库、长文本检索增强，与多语言问答。</p>
+          </article>
+          <article class="category-card" role="listitem">
+            <h3>自动化办公</h3>
+            <p>流程审批、会议纪要、任务同步，联动 Slack/Teams。</p>
+          </article>
+          <article class="category-card" role="listitem">
+            <h3>客户服务</h3>
+            <p>全渠道客服机器人、满意度追踪与故障报警。</p>
+          </article>
+          <article class="category-card" role="listitem">
+            <h3>研发辅助</h3>
+            <p>代码生成、评审助手、CI 分析与安全扫描。</p>
+          </article>
+          <article class="category-card" role="listitem">
+            <h3>设计多媒体</h3>
+            <p>视觉生成、视频剪辑、声音克隆与素材管理。</p>
+          </article>
+          <article class="category-card" role="listitem">
+            <h3>营销增长</h3>
+            <p>投放策略、A/B 生成、运营自动化、线索培育。</p>
+          </article>
+          <article class="category-card" role="listitem">
+            <h3>财务法务</h3>
+            <p>票据核验、合同审阅、风险提示与税务申报。</p>
+          </article>
+          <article class="category-card" role="listitem">
+            <h3>教育学习</h3>
+            <p>个性化学习路径、测评生成、多模态课堂互动。</p>
+          </article>
+          <article class="category-card" role="listitem">
+            <h3>运维安全</h3>
+            <p>监控告警、威胁情报、应急响应工作流。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="agent-market module-block" aria-labelledby="listingTitle">
+        <div class="section-heading">
+          <div>
+            <h2 id="listingTitle">精选 Agent 列表</h2>
+            <p>支持筛选、排序、对比与试跑沙箱，快速完成评估与决策。</p>
+          </div>
+          <div class="section-actions">
+            <button class="ghost-button" id="saveSearch" type="button">保存检索</button>
+            <button class="ghost-button" id="subscribeUpdates" type="button">订阅上新</button>
+          </div>
+        </div>
+        <div class="listing-layout">
+          <aside class="filters-panel" aria-label="筛选器">
+            <form id="filterForm">
+              <div class="filter-group">
+                <label for="priceFilter">价格</label>
+                <select id="priceFilter" name="price">
+                  <option value="all">全部</option>
+                  <option value="free">免费</option>
+                  <option value="one_time">一次性</option>
+                  <option value="subscription">订阅</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label for="ratingFilter">评分 ≥</label>
+                <select id="ratingFilter" name="rating">
+                  <option value="0">不限</option>
+                  <option value="3">3.0</option>
+                  <option value="3.5">3.5</option>
+                  <option value="4">4.0</option>
+                  <option value="4.5">4.5</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label for="successFilter">成功率 ≥</label>
+                <select id="successFilter" name="successRate">
+                  <option value="0">不限</option>
+                  <option value="70">70%</option>
+                  <option value="80">80%</option>
+                  <option value="90">90%</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label for="updatedFilter">更新时间</label>
+                <select id="updatedFilter" name="updatedWithin">
+                  <option value="all">全部</option>
+                  <option value="7">近 7 天</option>
+                  <option value="30">近 30 天</option>
+                  <option value="90">近 90 天</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label for="modelFilter">模型家族</label>
+                <select id="modelFilter" name="model">
+                  <option value="all">全部</option>
+                  <option value="gpt">GPT</option>
+                  <option value="claude">Claude</option>
+                  <option value="qwen">Qwen</option>
+                  <option value="llama">Llama</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label>支持工作流节点</label>
+                <div class="toggle-row">
+                  <input type="checkbox" id="workflowFilter" />
+                  <label for="workflowFilter">仅显示支持编排的 Agent</label>
+                </div>
+              </div>
+              <div class="filter-group">
+                <label>权限级别</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="permission" value="all" checked />全部</label>
+                  <label><input type="radio" name="permission" value="low" />低</label>
+                  <label><input type="radio" name="permission" value="medium" />中</label>
+                  <label><input type="radio" name="permission" value="high" />高</label>
+                </div>
+              </div>
+              <div class="filter-group">
+                <label for="enterpriseFilter">企业认证</label>
+                <div class="toggle-row">
+                  <input type="checkbox" id="enterpriseFilter" />
+                  <label for="enterpriseFilter">仅展示企业认证 Agent</label>
+                </div>
+              </div>
+              <div class="filter-group">
+                <label for="deploymentFilter">私有化部署</label>
+                <div class="toggle-row">
+                  <input type="checkbox" id="deploymentFilter" />
+                  <label for="deploymentFilter">支持私有化部署</label>
+                </div>
+              </div>
+              <div class="filter-actions">
+                <button type="reset" class="ghost-button">重置</button>
+              </div>
+            </form>
+            <div class="insight-card">
+              <h3>策略提醒</h3>
+              <p>热度分 = 0.35*相关性 + 0.25*趋势 + 0.2*质量 + 0.1*新鲜度 + 0.1*企业匹配。</p>
+            </div>
+          </aside>
+
+          <div class="results-panel">
+            <div class="results-toolbar">
+              <div class="result-count" id="resultCount">共 0 个 Agent</div>
+              <div class="sorting-controls">
+                <label for="sortSelect">排序</label>
+                <select id="sortSelect">
+                  <option value="relevance">相关性</option>
+                  <option value="trending">热度</option>
+                  <option value="growth">近 7 天增长</option>
+                  <option value="rating">评分</option>
+                  <option value="latest">最新</option>
+                  <option value="enterprise_fit">企业精选</option>
+                </select>
+              </div>
+            </div>
+            <div id="agentResults" class="agent-grid" role="list"></div>
+          </div>
+        </div>
+
+        <aside id="comparePanel" class="compare-panel" aria-live="polite">
+          <div class="compare-header">
+            <h3>对比栏</h3>
+            <button type="button" id="clearCompare" class="ghost-button">清空</button>
+          </div>
+          <p id="compareHint">可勾选 ≤ 3 个 Agent 对比关键指标。</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">指标</th>
+                  <th scope="col">Agent 1</th>
+                  <th scope="col">Agent 2</th>
+                  <th scope="col">Agent 3</th>
+                </tr>
+              </thead>
+              <tbody id="compareBody"></tbody>
+            </table>
+          </div>
+        </aside>
+      </section>
+
+      <section class="leaderboards module-block" aria-label="榜单" id="leaderboards">
+        <div class="section-heading">
+          <div>
+            <h2>榜单与趋势</h2>
+            <p>运营可通过榜单位配置曝光，结合 A/B 实验验证效果。</p>
+          </div>
+          <button class="ghost-button" type="button">配置榜单</button>
+        </div>
+        <div class="leaderboard-grid" role="list">
+          <article class="leaderboard-card" role="listitem">
+            <header>
+              <h3>新品推荐</h3>
+              <span class="badge">近 7 天</span>
+            </header>
+            <ol id="newLeaderboard"></ol>
+          </article>
+          <article class="leaderboard-card" role="listitem">
+            <header>
+              <h3>趋势飙升</h3>
+              <span class="badge">增长率</span>
+            </header>
+            <ol id="trendingLeaderboard"></ol>
+          </article>
+          <article class="leaderboard-card" role="listitem">
+            <header>
+              <h3>企业精选</h3>
+              <span class="badge">低风险</span>
+            </header>
+            <ol id="enterpriseLeaderboard"></ol>
+          </article>
+          <article class="leaderboard-card" role="listitem">
+            <header>
+              <h3>高评分</h3>
+              <span class="badge">≥ 4.6</span>
+            </header>
+            <ol id="ratingLeaderboard"></ol>
+          </article>
+        </div>
+      </section>
+
+      <section class="curated module-block" aria-label="精选合集" id="collections">
+        <div class="section-heading">
+          <div>
+            <h2>精选工作流与合集</h2>
+            <p>围绕热门行业和场景打包 Agent，快速落地业务闭环。</p>
+          </div>
+        </div>
+        <div class="collection-grid">
+          <article>
+            <h3>跨境电商自动化</h3>
+            <ul>
+              <li>Listing 多语言翻译</li>
+              <li>广告素材生成</li>
+              <li>客服工单分类</li>
+            </ul>
+            <button class="ghost-button" type="button">复制工作流</button>
+          </article>
+          <article>
+            <h3>企业数据智能报表</h3>
+            <ul>
+              <li>数据抽取 & 清洗</li>
+              <li>指标建模与监控</li>
+              <li>自动发报 & 告警</li>
+            </ul>
+            <button class="ghost-button" type="button">查看模板</button>
+          </article>
+          <article>
+            <h3>客户成功自动化</h3>
+            <ul>
+              <li>NPS 调研</li>
+              <li>风险客户预警</li>
+              <li>一键生成跟进任务</li>
+            </ul>
+            <button class="ghost-button" type="button">获取方案</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="workflow module-block" id="workflows">
+        <div class="section-heading">
+          <div>
+            <h2>工作流画布</h2>
+            <p>拖拽 Agent、工具与 API 节点，自定义触发条件与数据流。</p>
+          </div>
+          <div class="section-actions">
+            <button id="workflowRun" class="primary-button" type="button">运行一次</button>
+            <button id="workflowPublish" class="ghost-button" type="button">发布版本</button>
+          </div>
+        </div>
+        <div class="workflow-layout">
+          <div class="workflow-palette" aria-label="节点库">
+            <h3>节点库</h3>
+            <p>拖拽下列节点到画布构建自动化流程。</p>
+            <ul>
+              <li draggable="true" class="palette-item" data-type="trigger">Webhook 触发</li>
+              <li draggable="true" class="palette-item" data-type="agent">营销内容生成 Agent</li>
+              <li draggable="true" class="palette-item" data-type="agent">客服多语言 Agent</li>
+              <li draggable="true" class="palette-item" data-type="tool">Google Sheets 工具</li>
+              <li draggable="true" class="palette-item" data-type="tool">Slack 通知</li>
+              <li draggable="true" class="palette-item" data-type="agent">财务对账 Agent</li>
+            </ul>
+            <div class="palette-templates">
+              <h4>预置模板</h4>
+              <button type="button" data-template="content" class="ghost-button">内容生产流水线</button>
+              <button type="button" data-template="support" class="ghost-button">客服自动化</button>
+              <button type="button" data-template="analytics" class="ghost-button">数据 → 报表</button>
+            </div>
+          </div>
+          <div class="workflow-canvas" id="workflowCanvas" aria-live="polite">
+            <p class="canvas-placeholder">将节点拖拽到此处开始编排</p>
+          </div>
+          <aside class="workflow-sidebar" aria-label="属性面板">
+            <h3>属性</h3>
+            <dl id="workflowProperties">
+              <dt>运行模式</dt>
+              <dd>手动 / 定时 / Webhook</dd>
+              <dt>版本</dt>
+              <dd>1.3.0（可回滚）</dd>
+              <dt>安全与合规</dt>
+              <dd>Workspace 级变量隔离，操作审计 90 天</dd>
+              <dt>状态监测</dt>
+              <dd>OpenTelemetry + Prometheus</dd>
+            </dl>
+          </aside>
+        </div>
+        <div class="workflow-audit">
+          <h3>审计日志</h3>
+          <ul id="workflowLogs"></ul>
+        </div>
+      </section>
+
+      <section class="creator module-block" id="creator">
+        <div class="section-heading">
+          <div>
+            <h2>开发者中心</h2>
+            <p>低门槛表单上架，支持版本管理、定价策略与收益结算。</p>
+          </div>
+          <button class="primary-button" type="button">提交新 Agent</button>
+        </div>
+        <div class="creator-grid">
+          <article>
+            <h3>上架流程</h3>
+            <ol>
+              <li>填写元数据表单与权限清单</li>
+              <li>连接 Git 仓库或上传包</li>
+              <li>配置试跑沙箱与测试用例</li>
+              <li>提交审核（机器初审 + 人工复审）</li>
+            </ol>
+          </article>
+          <article>
+            <h3>版本与变更</h3>
+            <p>支持 SemVer、灰度发布与一键回滚，变更日志自动推送订阅者。</p>
+          </article>
+          <article>
+            <h3>收益面板</h3>
+            <p>实时查看订单、分成、评价与故障报警，支持提现与折扣码。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="enterprise module-block" id="enterprise">
+        <div class="section-heading">
+          <div>
+            <h2>企业空间</h2>
+            <p>集中采购与管理席位/调用额度，配置数据边界与审批流。</p>
+          </div>
+          <button class="ghost-button" type="button">申请企业版试用</button>
+        </div>
+        <div class="enterprise-grid">
+          <article>
+            <h3>组织与角色</h3>
+            <p>Owner / Admin / Member / Viewer 多角色，细粒度 RBAC。</p>
+          </article>
+          <article>
+            <h3>计费与发票</h3>
+            <p>一次性购买、订阅、按量后付费，并支持企业抬头发票。</p>
+          </article>
+          <article>
+            <h3>安全策略</h3>
+            <p>OAuth Scope 控制、密钥保管库、数据驻留声明与 DPA。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="analytics module-block" id="docs">
+        <div class="section-heading">
+          <div>
+            <h2>数据与分析面板</h2>
+            <p>行为漏斗、质量、财务与内容面板，支持自定义维度与导出。</p>
+          </div>
+        </div>
+        <div class="analytics-grid">
+          <article>
+            <h3>行为漏斗</h3>
+            <p>曝光 → 点击 → 详情 → 试跑 → 结算 → 支付成功。</p>
+            <dl>
+              <div>
+                <dt>试跑率</dt>
+                <dd id="metricTrialRate">--</dd>
+              </div>
+              <div>
+                <dt>结算率</dt>
+                <dd id="metricCheckoutRate">--</dd>
+              </div>
+              <div>
+                <dt>退款率</dt>
+                <dd id="metricRefundRate">--</dd>
+              </div>
+            </dl>
+          </article>
+          <article>
+            <h3>质量面板</h3>
+            <p>监控成功率、失败原因 Top3 与依赖服务状态。</p>
+            <ul id="qualityStats"></ul>
+          </article>
+          <article>
+            <h3>财务面板</h3>
+            <p>MRR、ARPU、流失率、分成趋势一目了然。</p>
+            <div class="chart-placeholder">MRR 本月：<span id="metricMRR">--</span></div>
+          </article>
+          <article>
+            <h3>内容面板</h3>
+            <p>热门分类、标签、搜索词覆盖，定位冷启动机会。</p>
+            <ul id="contentInsights"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="compliance module-block" id="support">
+        <div class="section-heading">
+          <div>
+            <h2>合规与风控</h2>
+            <p>权限透明、沙箱隔离、审核清单、操作审计，保障可信赖。</p>
+          </div>
+        </div>
+        <div class="compliance-grid">
+          <article>
+            <h3>权限透明</h3>
+            <p>详情页列出外呼与数据范围，高权限需二次确认与审批。</p>
+          </article>
+          <article>
+            <h3>风控策略</h3>
+            <p>设备指纹、异常订单拦截、第三方依赖健康检查、降级与隔离。</p>
+          </article>
+          <article>
+            <h3>数据合规</h3>
+            <p>遵循 GDPR/CCPA，提供数据处理协议，敏感日志保留 90 天。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <h3>Agent Market</h3>
+        <p>结合官方自营 Agent、模板与合作伙伴资源，加速冷启动。</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>文档</h4>
+          <ul>
+            <li><a href="#docs">API 参考</a></li>
+            <li><a href="#docs">OpenAPI 契约</a></li>
+            <li><a href="#docs">设计规范</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>支持</h4>
+          <ul>
+            <li><a href="#support">运营手册</a></li>
+            <li><a href="#support">审核指南</a></li>
+            <li><a href="#support">风控策略</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>联系</h4>
+          <ul>
+            <li><a href="mailto:hello@agent.market">hello@agent.market</a></li>
+            <li><a href="#">社区与论坛</a></li>
+            <li><a href="#">邀请返利计划</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-meta">© 2024 Agent Market. 版权所有。版本 M1。</p>
+    </footer>
+
+    <div id="agentModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+      <div class="modal-content">
+        <button class="modal-close" type="button" aria-label="关闭" id="modalClose">×</button>
+        <header class="modal-header">
+          <div>
+            <h2 id="modalTitle"></h2>
+            <p id="modalSubtitle"></p>
+          </div>
+          <div class="modal-metrics">
+            <div>
+              <span>评分</span>
+              <strong id="modalRating">-</strong>
+            </div>
+            <div>
+              <span>成功率</span>
+              <strong id="modalSuccess">-</strong>
+            </div>
+            <div>
+              <span>平均耗时</span>
+              <strong id="modalLatency">-</strong>
+            </div>
+          </div>
+        </header>
+        <nav class="modal-tabs" aria-label="详情标签">
+          <button class="tab active" data-tab="overview">概览</button>
+          <button class="tab" data-tab="sandbox">试跑沙箱</button>
+          <button class="tab" data-tab="versions">版本</button>
+          <button class="tab" data-tab="reviews">评价</button>
+        </nav>
+        <section class="tab-panel active" id="tab-overview">
+          <div class="modal-body">
+            <article>
+              <h3>简介</h3>
+              <p id="modalDescription"></p>
+            </article>
+            <article>
+              <h3>权限请求</h3>
+              <ul id="modalPermissions"></ul>
+            </article>
+            <article>
+              <h3>安全与合规</h3>
+              <p id="modalCompliance"></p>
+            </article>
+            <article>
+              <h3>价格与计费</h3>
+              <p id="modalPricing"></p>
+            </article>
+            <article>
+              <h3>开发者信息</h3>
+              <p id="modalDeveloper"></p>
+            </article>
+          </div>
+        </section>
+        <section class="tab-panel" id="tab-sandbox">
+          <form id="sandboxForm" class="sandbox-form">
+            <label for="sandboxPrompt">输入 Prompt 或参数</label>
+            <textarea id="sandboxPrompt" rows="4" placeholder="例如：生成下周电商直播运营计划"></textarea>
+            <div class="sandbox-meta">
+              <span id="sandboxQuota"></span>
+              <span id="sandboxPermissions"></span>
+            </div>
+            <button type="submit" class="primary-button">运行试跑</button>
+          </form>
+          <div class="sandbox-output">
+            <h3>输出</h3>
+            <pre id="sandboxResult">等待运行...</pre>
+            <h4>执行日志</h4>
+            <pre id="sandboxLogs"></pre>
+          </div>
+        </section>
+        <section class="tab-panel" id="tab-versions">
+          <ul id="modalVersions" class="version-list"></ul>
+        </section>
+        <section class="tab-panel" id="tab-reviews">
+          <div id="modalReviews" class="review-list"></div>
+        </section>
+      </div>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

@@ -1,1 +1,41 @@
-The platform supports developers in encapsulating their familiar and proficient professional skills into Agents, which can then be published, sold, or leased in the market. 
+# Agent Market Web Demo
+
+一个基于静态资源构建的前端 Demo，用于呈现 AI Agent 市场与工作流平台的核心能力：发现、筛选、试跑沙箱、对比、工作流编排、开发者中心、企业空间、合规与分析面板等。
+
+## 功能亮点
+
+- **全局发现与检索**：支持自然语言与 `price:`、`model:`、`risk:` 等高级语法，配合筛选器与排序逻辑实现 Agent 发现闭环。
+- **可视化筛选与对比**：价格、评分、成功率、更新时间、模型、权限、企业认证、私有化部署等 Facets，并提供 ≤3 个 Agent 的指标对比表。
+- **Agent 详情与试跑沙箱**：弹窗展示简介、权限、定价、版本、评价及沙箱试跑模拟，附带权限提示与执行日志。
+- **榜单与精选合集**：新品、趋势、高评分、企业精选榜单以及行业工作流模板，方便运营配置曝光位。
+- **工作流画布**：支持拖拽节点到画布、加载模板、运行与发布日志，模拟工作流编排体验。
+- **运营与分析面板**：展示行为漏斗、质量、财务与内容洞察，结合样例数据动态刷新指标。
+- **主题切换与响应式布局**：提供深浅色主题切换，对移动端进行适配。
+
+## 使用方式
+
+1. 克隆或下载本仓库。
+2. 直接在浏览器中打开 `index.html`，无需额外构建或依赖安装。
+3. 若需启动本地静态服务器，可使用任意 HTTP Server（例如 `python -m http.server`）。
+
+## 项目结构
+
+```
+.
+├── Agent.md              # 开发规范
+├── Readme.md             # 项目说明
+├── index.html            # 应用入口
+├── scripts/
+│   └── app.js            # 交互逻辑与数据
+└── styles/
+    └── main.css          # 样式定义
+```
+
+## 自定义数据
+
+- 要扩展 Agent 列表，可在 `scripts/app.js` 中 `agents` 数组新增/修改条目。
+- 可在同一文件调整筛选条件、榜单逻辑与工作流模板以匹配实际业务。
+
+## 许可
+
+本示例仅用于演示与内部评审，非正式商用版本。
